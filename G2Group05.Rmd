@@ -71,11 +71,14 @@ theoretical.var.mean <- pop.sd^2
 theoretical.var.sd <- sqrt(2*pop.sd^4/(sample.size - 1))
 
 #comparision between the sample statistics and theoretical values
-temp <- c(sample.mean.mean, sample.var.mean, sample.mean.sd, sample.var.sd)
-comp <-rbind(temp, c(theoretical.mean.mean, theoretical.var.mean, theoretical.mean.sd, theoretical.var.sd))
+temp <- c(sample.mean.mean, sample.var.mean, sample.mean.sd, sample.var.sd,
+          theoretical.mean.mean, theoretical.var.mean, theoretical.mean.sd, theoretical.var.sd)
+comp <- matrix(temp, nrow=2,ncol=4, byrow=TRUE)
 colnames(comp) <-c("mean_of_means", "mean_of_vars", "sd_of_means", "sd_of_vars" )
 rownames(comp) <-c("sample", "theoretical")
 comp
+
+
 
 library("ggplot2")
 #sample means distribution
